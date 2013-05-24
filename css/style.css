@@ -50,21 +50,25 @@
   }
 
   .story_title {
-    padding: 15px;
-    font-size: 24px;
-    color: #243748;
-    text-shadow: 0 1px 1px rgba(255,255,255,0.33);
+    font:bold 25px/1.2 "微软雅黑",Arial,verdana;
+    color: #333;
+    text-shadow:rgba(50,50,50,.3) 1px 1px 3px;
+    //text-shadow: 0 1px 1px rgba(255,255,255,0.33);
+    //color: #243748;
     letter-spacing: 2px;
-
-
+    padding: 15px;
   }
 
   .story_text {
+    font:bold 25px/1.2 "微软雅黑",Arial,verdana;
+    color: #333;
+    text-shadow:rgba(50,50,50,.3) 1px 1px 3px;
+    //color: #243748;
+    //text-shadow: 0 1px 1px rgba(255,255,255,0.33);
     padding: 15px;
     font-size: 18px;
     line-height: 23px;
-    color: #243748;
-    text-shadow: 0 1px 1px rgba(255,255,255,0.33);
+    padding: 15px;
     letter-spacing: 1px;
   }
 
