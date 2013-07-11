@@ -1,7 +1,8 @@
 
   body {
     margin: 0px;
-    background: #DDD;
+    //background: #DDD;
+    background: url(http://s.ppsrc.com/w/img/bg/global.$5.png);
     font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;
   }
 
@@ -20,15 +21,18 @@
 
   .xreader {
     height: 680px;
-    width: 3000px;
-    padding: 70px 30px 10px 30px;
+    width: 1320px;
+
+    margin: 0px auto;
+    padding-top:40px;
 
   }
 
   .story {
-    width: 480px;
-    margin-right: 80px;
-    height: 680px;
+    width: 380px;
+    margin: 20px;
+
+    height: 380px;
     background: #f4f4f4;
     float: left;
 
@@ -43,7 +47,7 @@
 
   .story_img {
     width: 100%;
-    height: 40%;
+    height: 50%;
     border-radius: 8px 8px 0px 0px;
 
 
@@ -56,19 +60,24 @@
     //text-shadow: 0 1px 1px rgba(255,255,255,0.33);
     //color: #243748;
     letter-spacing: 2px;
-    padding: 15px;
+    padding: 8px 15px;
+
+
+    /*图片中的标题*
+    position: relative;
+    top: 140px;
+    background: rgba(50,50,50,.4);
+    color: #FFF;*/
   }
 
   .story_text {
-    font:bold 25px/1.2 "微软雅黑",Arial,verdana;
+    font:18px/1.5 "微软雅黑",Arial,verdana;
     color: #333;
-    text-shadow:rgba(50,50,50,.3) 1px 1px 3px;
+    //text-shadow:rgba(50,50,50,.3) 1px 1px 3px;
     //color: #243748;
     //text-shadow: 0 1px 1px rgba(255,255,255,0.33);
-    padding: 15px;
-    font-size: 18px;
-    line-height: 23px;
-    padding: 15px;
+    padding: 0px 15px;
+
     letter-spacing: 1px;
   }
 
@@ -78,6 +87,6 @@
     height: 50px;
     width: 100%;
     margin: 10px;
-    background: url(/img/tl.png) center left repeat-x;
+    background: #FFF url(../img/tl.png) center left repeat-x;
     opacity: 0.5;
   }
