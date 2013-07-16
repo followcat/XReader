@@ -1,0 +1,346 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>设计一款好的移动App，有哪些基本规则？ ——  迅阅 思维之迅</title>
+    <style type="text/css">
+
+	  	body {
+	  		margin: 0px;
+            background: url(http://s.ppsrc.com/w/img/bg/global.$5.png);
+	  	}
+
+	  	.boxright {
+	  		width: 30%;
+	  		height: 80%;
+	  		margin-top: 5%;
+	  		position: fixed;
+	  		right: 0px;
+	  		top: 0px;
+	  		//border-left: 1px #999 solid;
+	  	}
+
+	  	.boxleft {
+	  		width: 70%;
+            box-shadow: 2px 99px 25px 5px #C3C4C6;
+	  	}
+
+	  	.main {
+	  		width: 900px;
+	  		padding-bottom: 20px;
+	  		margin: 0px auto;
+	  	}
+
+	  	.fulltext {
+	  		margin-top:15px; 
+	  		font: 20px/1.5 Arial,'Helvetica Neue',Helvetica,sans-serif;
+	  	}
+
+	  	.logo {
+	  		width: 80%;
+	  		height: 200px;
+	  		margin: 20px auto;
+	  		background: #eee;
+	  	}
+
+	  	.comments {
+	  		width: 80%;
+	  		height: 600px;
+	  		margin: 20px auto;
+
+	  		border-top: 1px #EEE solid;
+
+            overflow-y: auto; 
+	  	}
+
+	  	#comments{margin:0 1px;}
+#comments .loading,.side .loading{min-height:30px;background:url(images/ajax_sending.gif) no-repeat center 10px;}
+#comments .latest{background:#E9F3DA;margin:0;padding:16px;}
+#comments .comment_list_area .latest{border-radius:5px 5px 5px 5px;padding:10px 13px 10px 10px;}
+.comment_list_area .comment .content p{display:block;}
+.comment-box-type{border-bottom:1px solid #F0F0F0;line-height:14px;height:14px;overflow:hidden;margin:0!important;padding:12px 0 8px;}
+.comment-box-type .comment-box-title{float:left;}
+.comment-box-type .sort{float:right;height:16px;width:46px;overflow:hidden;}
+.comment-box-type .sort .by_like{background-position:-286px -186px;border-right:1px solid #e8e8e8;display:inline-block;float:left;height:16px;text-indent:-999px;width:24px;cursor:pointer;}
+.comment-box-type .sort .by_like:hover,.comment-box-type .sort .by_like.active{background-position:-346px -186px;}
+.comment-box-type .sort .by_time{background-position:-290px -213px;display:inline-block;height:16px;margin-left:5px;text-indent:-999px;width:16px;cursor:pointer;}
+.comment-box-type .sort .by_time:hover,.comment-box-type .sort .by_time.active{background-position:-321px -213px;}
+.comment a.loadparent{background:url("/public/img/icons/main_icons.png") -26px -145px no-repeat ;height:20px;}
+.comment a.loadparent:hover{background:url("/public/img/icons/main_icons.png") -25px -176px no-repeat ;}
+.comment a.loading{background:url("/public/img/icons/loading.gif") no-repeat left;}
+#event-history a.close{width:20px;height:20px;display:inline-block;*display:inline;*zoom:1;text-indent:-999em;}
+#event-history a.close{background:url("/public/img/icons/main_icons.png") -25px -206px no-repeat ;}
+#event-history a.close:hover{background:url("/public/img/icons/main_icons.png") -25px -237px no-repeat ;}
+.comment-toolbar a.lecture,.comment-toolbar a.suggest,.comment-toolbar a.question{background:url("/public/img/icons/main_icons.png") no-repeat ;display:inline-block;*display:inline;*zoom:1;height:24px;margin-right:5px;text-indent:-999em;width:24px;}
+.comment-toolbar a.lecture{background-position:-150px -33px;}
+.comment-toolbar a.lecture:hover{background-position:-150px -65px;}
+.comment-toolbar a.suggest{background-position:-184px -33px;}
+.comment-toolbar a.suggest:hover{background-position:-184px -65px;}
+.comment-toolbar a.question{background-position:-222px -33px;}
+.comment-toolbar a.question:hover{background-position:-222px -65px;}
+a.subtitle span{background:url("/public/img/icons/text.png") 0 0 no-repeat ;padding-left:20px;text-shadow:1px 1px 1px rgba(0,0,0,0.3) inset;}
+a.subtitle.on span{background:url("/public/img/icons/text.png") 0 -61px no-repeat ;padding-left:20px;}
+.comment a.reply-bt .is_reply{background-position:-292px -238px;cursor:pointer;display:inline-block;height:16px;line-height:16px;vertical-align:top;width:16px;}
+.comment a.reply-bt:hover .is_reply{background-position:-323px -238px;}
+.comments_list .comment a.like-bt{display:none;background-image:none;}
+.comment a.reply-bt{display:inline-block;font-size:12px;height:16px;line-height:16px;color:#999999;}
+.comment a.like-bt .is_like{background-position:-323px -186px;cursor:pointer;display:inline-block;vertical-align:top;height:16px;line-height:16px;width:16px;}
+.comment a.like-bt{display:inline-block;font-size:12px;color:#999999;}
+.comments_list{background:none repeat scroll 0 0 #F4F4F4;border-radius:5px 5px 5px 5px;display:none;position:relative;margin:12px 0 0;}
+.comments_list .comment_list_area{border:1px solid transparent;border-radius:5px 5px 5px 5px;}
+.comments_list .comment{border-bottom:1px solid #FFFFFF;margin:0;padding:10px 13px 10px 10px;}
+.comments_list .user{font-size:12px;}
+.comments_list .reply_text{cursor:default;color:#91D06C;font-size:12px;}
+.comments_list .comment a.reply-bt{width:auto;}
+.comments_list .comment .content{text-align:left;}
+.comment .reply-bt-box{display:inline-block;width:80px;}
+.comments_list .arrow-up-in{border-left:6px dashed transparent!important;border-right:6px dashed transparent!important;border-top:0 dashed transparent!important;border-bottom-color:#F4F4F4;left:23px;position:absolute;top:-6px;border-style:dashed dashed solid!important;border-width:0 6px 6px!important;}
+.comments_list .comment-form{margin:0;padding:10px;}
+.comments_list .comment-form textarea,.comments_list .comment-form input{width:285px;}
+
+.comments_list .box_father{overflow:hidden;margin:0;}
+.comments_list .in-reply-to{color:#999999;font-size:12px;display:none;line-height:16px;margin:0 0 5px;}
+.comments_list .in-reply-to .cancel-reply{vertical-align:top;background-position:-382px -307px;cursor:pointer;display:inline-block;height:16px;margin-left:5px;text-indent:-9999px;width:16px;}
+.comments_list .in-reply-to .cancel-reply:hover{background-position:-406px -307px;}
+.comments_list .comment-form p.loginname-box{display: none;}
+.comments_list .comment-form p.captcha-box{display: none;}
+.comments_list .comment-form p.act{float:right;margin-top: 5px;display: none;}
+.comments_list .comment-form p.anonymous{float: left;font-size: 12px;height: 28px;line-height: 28px;margin-top: 5px;display: none;}
+.is-login p.act, .is-login p.anonymous{display: none;}
+
+.comments_list .anonymous .anonymous-checkbox,#comment-box .anonymous .anonymous-checkbox, #notice-reply .anonymous .anonymous-checkbox{left: -9999px;position: absolute;}
+.comments_list .anonymous .anonymous_label,#comment-box .anonymous .anonymous_label,#notice-reply .anonymous .anonymous_label{background-position: -291px -368px;display: block;font-size: 12px;height: 28px;line-height: 30px;padding-left: 20px;}
+.comments_list .anonymous .checked,#comment-box .anonymous .checked, #notice-reply .anonymous .checked{background-position: -291px -397px;}
+#comment-box-banner{ width: 350px;display:block;height: 60px;border: 1px solid #e3e3e3;margin:0 auto;margin-top:20px;padding: 5px;}
+#comments .reply-to-top{border-top:1px solid #F0F0F0;display:block;height:20px;position:relative;margin:30px 20px 0;}
+#comments .reply-to-top .reply-to-textbox{background:none repeat scroll 0 0 #FFFFFF;display:inline-block;font-size:12px;height:19px;left:50%;line-height:19px;margin-left:-55px;position:absolute;text-align:center;top:-10px;width:110px;}
+#comments .reply-to-top a:hover{color:#efefef;background:#666;}
+#comments .reply-to-top .reply-to-text{background:none repeat scroll 0 0 #F3F4F8;border-radius:10px 10px 10px 10px;color:#999999;cursor:pointer;border-bottom:none;display:inline-block;width:92px;}
+.comment{border-bottom:1px solid #EAEAEA;margin:0 18px 0 16px;padding:16px 0;}
+.comment .avatar{float:left;margin-right:10px;}
+.comment .avatar a:hover{border-bottom:none;}
+.comment .avatar img{width:30px;height:30px;}
+.comment .entry{overflow:hidden;_float:left;}
+.comment .header{height:16px;line-height:16px;overflow:hidden;}
+.comment .header a.reply,.comment .header time{float:right;color:#999;font-size:12px;line-height:16px;}
+.comment a.reply{margin-top:0;_border:1px solid #fff;}
+.comment a.reply:hover{_border:1px solid #fff;}
+.comment .content{color:#666666;line-height:18px;text-align:left;padding:0 0 6px;}
+.comments_list .comment a.reply-bt .is_reply,.comments_list .avatar{display:none;}
+.comment a.reply-bt:hover,.comment a.like-bt:hover{border:none;}
+.comment a.true .is_like,.comment a.like-bt:hover .is_like{background-position:-352px -186px;}
+.comment .content p{margin:0; text-align:left; line-height: 150%;}
+.comment .content p.first-line{display: inline;}
+.comment .user{color:#0099cc;}
+.comment .anonymous-user{color: #888;text-decoration: none; cursor: default;}
+.comment .anonymous-user:hover{border-bottom:0;}
+.comment .anonymous-user span{color: #fff; background: #999; border-radius: 2px; display: inline-block; font-size: 10px; padding: 0 2px; line-height: 1.3em;margin:0 2px 0 0;position:relative;top:-1px;-webkit-text-size-adjust:none;
+}
+.comment .toolbar{font-size:12px;color:#999;}
+.comment .toolbar a{display:inline;*display:inline;_zoom:1;height:17px;line-height:19px;}
+.comment .toolbar time{float:right;}
+.comment .toolbar .from{padding-left:15px;background:url(/public/img/icons/from.gif) no-repeat 0 center;}
+.comment a.loadparent{color:#999;padding-left:23px;background:url(/public/img/icons/comment_parent.gif) no-repeat 0 center;}
+.comment p.extra a:hover,
+.comment .toolbar a:hover{border:none;}
+
+
+	</style>
+
+</head>
+<body>
+	<div class="boxright">
+		<div class="logo"><div style="font-size:130px;font-family: '微软雅黑';    font-weight: bolder;padding-left:100px;">迅阅</div></b><br>
+            <a href="index.html"><div style="height:50px;width:50%;float:left;background:red;">返回迅阅</div></a> 
+            <a href="#"><div style="height:50px;width:50%;float:left;">下载客户端</div></a></div>
+		<div class="comments">
+
+
+
+		<div class="comment"> 
+         <div class="avatar"> 
+             <a href="###">
+                 <img src="http://www.geekpark.net/uploads/anonymous_avatar/3_30.jpg" alt="冰岛天地"> 
+             </a>
+         </div>
+         <div class="entry"> 
+             <div class="content">
+                 <a class="user anonymous-user" href="###">冰岛天地 </a>: <p class="first-line">丁字式的开发 普适性的应用 赞</p></div>
+             <div class="header">
+                 <span class="reply-bt-box"><a title="发表回复" class="reply-bt 0" href="javascrit:void(0)" rel="184659"><i class="main_icons is_reply"></i><span>回复 (<i>0</i>)</span></a></span>
+                 <a id="184659" class="like-bt false" href="javascrit:void(0)" original-title="赞一个"><i class="main_icons is_like"></i><span>赞 (<i>0</i>)</span></a>
+                 <time datetime="">约2天以前</time>
+             </div>
+             <div class="toolbar"></div>
+             <div class="comments_list opened"><div class="ajax_status"></div><span class="arrow-up-in"></span><div class="comment_list_area"></div><div class="comment_box_area"></div></div>
+         </div>
+     </div><div class="comment"> 
+         <div class="avatar"> 
+             <a href="###">
+                 <img src="http://www.geekpark.net/uploads/anonymous_avatar/8_30.jpg" alt="weiwade"> 
+             </a>
+         </div>
+         <div class="entry"> 
+             <div class="content">
+                 <a class="user anonymous-user" href="###">weiwade </a>: <p class="first-line">赞一个，支持老同学！！！</p></div>
+             <div class="header">
+                 <span class="reply-bt-box"><a title="发表回复" class="reply-bt 0" href="javascrit:void(0)" rel="184616"><i class="main_icons is_reply"></i><span>回复 (<i>0</i>)</span></a></span>
+                 <a id="184616" title="赞一个" class="like-bt false" href="javascrit:void(0)"><i class="main_icons is_like"></i><span>赞 (<i>0</i>)</span></a>
+                 <time datetime="">约3天以前</time>
+             </div>
+             <div class="toolbar"></div>
+             <div class="comments_list opened"><div class="ajax_status"></div><span class="arrow-up-in"></span><div class="comment_list_area"></div><div class="comment_box_area"></div></div>
+         </div>
+     </div><div class="comment"> 
+         <div class="avatar"> 
+             <a href="###">
+                 <img src="http://www.geekpark.net/uploads/anonymous_avatar/7_30.jpg" alt="Wang"> 
+             </a>
+         </div>
+         <div class="entry"> 
+             <div class="content">
+                 <a class="user anonymous-user" href="###">Wang </a>: <p class="first-line">yf f f g g g g g g g f f f f f</p></div>
+             <div class="header">
+                 <span class="reply-bt-box"><a title="发表回复" class="reply-bt 0" href="javascrit:void(0)" rel="184583"><i class="main_icons is_reply"></i><span>回复 (<i>0</i>)</span></a></span>
+                 <a id="184583" title="赞一个" class="like-bt false" href="javascrit:void(0)"><i class="main_icons is_like"></i><span>赞 (<i>0</i>)</span></a>
+                 <time datetime="">约4天以前</time>
+             </div>
+             <div class="toolbar"></div>
+             <div class="comments_list opened"><div class="ajax_status"></div><span class="arrow-up-in"></span><div class="comment_list_area"></div><div class="comment_box_area"></div></div>
+         </div>
+     </div><div class="comment"> 
+         <div class="avatar"> 
+             <a href="###">
+                 <img src="http://www.geekpark.net/uploads/anonymous_avatar/8_30.jpg" alt="半夏"> 
+             </a>
+         </div>
+         <div class="entry"> 
+             <div class="content">
+                 <a class="user anonymous-user" href="###">半夏 </a>: <p class="first-line">帅锅，快到碗里来</p></div>
+             <div class="header">
+                 <span class="reply-bt-box"><a title="发表回复" class="reply-bt 1 close" href="javascrit:void(0)" rel="184568"><i class="main_icons is_reply"></i><span>回复 (<i>1</i>)</span></a></span>
+                 <a id="184568" title="赞一个" class="like-bt false" href="javascrit:void(0)"><i class="main_icons is_like"></i><span>赞 (<i>3</i>)</span></a>
+                 <time datetime="">约4天以前</time>
+             </div>
+             <div class="toolbar"></div>
+             <div class="comments_list opened" style="display: block;"><div class="ajax_status"></div><span class="arrow-up-in"></span><div class="comment_list_area"><div class="comment"> 
+         <div class="avatar"> 
+             <a href="###">
+                 <img src="" alt="mm"> 
+             </a>
+         </div>
+         <div class="entry"> 
+             <div class="content">
+                 <a class="user anonymous-user" href="###">mm </a>: <p>～</p></div>
+             <div class="header">
+                 <span class="reply-bt-box"><a title="发表回复" class="reply-bt undefined" href="javascrit:void(0)" rel="184585"><i class="main_icons is_reply"></i><span>回复</span></a></span>
+                 <a id="184585" title="赞一个" class="like-bt undefined" href="javascrit:void(0)"><i class="main_icons is_like"></i><span></span></a>
+                 <time datetime="">约4天以前</time>
+             </div>
+             <div class="toolbar"></div>
+             <div class="comments_list"><div class="ajax_status"></div><span class="arrow-up-in"></span><div class="comment_list_area"></div><div class="comment_box_area"></div></div>
+         </div>
+     </div></div><div class="comment_box_area"></div></div>
+         </div>
+     </div><div class="comment"> 
+         <div class="avatar"> 
+             <a href="###">
+                 <img src="http://www.geekpark.net/uploads/anonymous_avatar/2_30.jpg" alt="方兴未艾"> 
+             </a>
+         </div>
+         <div class="entry"> 
+             <div class="content">
+                 <a class="user anonymous-user" href="###">方兴未艾 </a>: <p class="first-line">求勾搭</p></div>
+             <div class="header">
+                 <span class="reply-bt-box"><a title="发表回复" class="reply-bt 0" href="javascrit:void(0)" rel="184522"><i class="main_icons is_reply"></i><span>回复 (<i>0</i>)</span></a></span>
+                 <a id="184522" title="赞一个" class="like-bt false" href="javascrit:void(0)"><i class="main_icons is_like"></i><span>赞 (<i>4</i>)</span></a>
+                 <time datetime="">约4天以前</time>
+             </div>
+             <div class="toolbar"></div>
+             <div class="comments_list opened"><div class="ajax_status"></div><span class="arrow-up-in"></span><div class="comment_list_area"></div><div class="comment_box_area"></div></div>
+         </div>
+     </div><div class="comment"> 
+         <div class="avatar"> 
+             <a href="###">
+                 <img src="http://www.geekpark.net/uploads/anonymous_avatar/4_30.jpg" alt="PPY1211"> 
+             </a>
+         </div>
+         <div class="entry"> 
+             <div class="content">
+                 <a class="user anonymous-user" href="###">PPY1211 </a>: <p class="first-line">极客精神做产品，怪不得产品体验度这么好！！</p></div>
+             <div class="header">
+                 <span class="reply-bt-box"><a title="发表回复" class="reply-bt 0" href="javascrit:void(0)" rel="184520"><i class="main_icons is_reply"></i><span>回复 (<i>0</i>)</span></a></span>
+                 <a id="184520" title="赞一个" class="like-bt false" href="javascrit:void(0)"><i class="main_icons is_like"></i><span>赞 (<i>1</i>)</span></a>
+                 <time datetime="">约4天以前</time>
+             </div>
+             <div class="toolbar"></div>
+             <div class="comments_list opened"><div class="ajax_status"></div><span class="arrow-up-in"></span><div class="comment_list_area"></div><div class="comment_box_area"></div></div>
+         </div>
+     </div><div class="comment"> 
+         <div class="avatar"> 
+             <a href="###">
+                 <img src="http://www.geekpark.net/uploads/anonymous_avatar/8_30.jpg" alt="兔纸"> 
+             </a>
+         </div>
+         <div class="entry"> 
+             <div class="content">
+                 <a class="user anonymous-user" href="###">兔纸 </a>: <p class="first-line">好年轻的CEO啊，才华横溢，西柚真是蛮好用的，实用又可爱，没想到做这个软件出来的是男的，8错8错，继续支持！</p></div>
+             <div class="header">
+                 <span class="reply-bt-box"><a title="发表回复" class="reply-bt 0" href="javascrit:void(0)" rel="184512"><i class="main_icons is_reply"></i><span>回复 (<i>0</i>)</span></a></span>
+                 <a id="184512" title="赞一个" class="like-bt false" href="javascrit:void(0)"><i class="main_icons is_like"></i><span>赞 (<i>1</i>)</span></a>
+                 <time datetime="">约4天以前</time>
+             </div>
+             <div class="toolbar"></div>
+             <div class="comments_list opened"><div class="ajax_status"></div><span class="arrow-up-in"></span><div class="comment_list_area"></div><div class="comment_box_area"></div></div>
+         </div>
+     </div><div class="comment"> 
+         <div class="avatar"> 
+             <a href="###">
+                 <img src="http://www.geekpark.net/uploads/anonymous_avatar/6_30.jpg" alt="啾啾"> 
+             </a>
+         </div>
+         <div class="entry"> 
+             <div class="content">
+                 <a class="user anonymous-user" href="###">啾啾 </a>: <p class="first-line">"……妇女之友……会找不到女朋友的"</p></div>
+             <div class="header">
+                 <span class="reply-bt-box"><a title="发表回复" class="reply-bt 0" href="javascrit:void(0)" rel="184510"><i class="main_icons is_reply"></i><span>回复 (<i>0</i>)</span></a></span>
+                 <a id="184510" title="赞一个" class="like-bt false" href="javascrit:void(0)"><i class="main_icons is_like"></i><span>赞 (<i>2</i>)</span></a>
+                 <time datetime="">约4天以前</time>
+             </div>
+             <div class="toolbar"></div>
+             <div class="comments_list opened"><div class="ajax_status"></div><span class="arrow-up-in"></span><div class="comment_list_area"></div><div class="comment_box_area"></div></div>
+         </div>
+     </div><div class="comment clear-border"> 
+         <div class="avatar"> 
+             <a href="###">
+                 <img src="http://www.geekpark.net/uploads/anonymous_avatar/3_30.jpg" alt="vivian8848"> 
+             </a>
+         </div>
+         <div class="entry"> 
+             <div class="content">
+                 <a class="user anonymous-user" href="###">vivian8848 </a>: <p class="first-line">原来西柚的幕后是帅老板！更喜欢啦！~~~</p></div>
+             <div class="header">
+                 <span class="reply-bt-box"><a title="发表回复" class="reply-bt 0" href="javascrit:void(0)" rel="184507"><i class="main_icons is_reply"></i><span>回复 (<i>0</i>)</span></a></span>
+                 <a id="184507" title="赞一个" class="like-bt false" href="javascrit:void(0)"><i class="main_icons is_like"></i><span>赞 (<i>2</i>)</span></a>
+                 <time datetime="">约4天以前</time>
+             </div>
+             <div class="toolbar"></div>
+             <div class="comments_list opened"><div class="ajax_status"></div><span class="arrow-up-in"></span><div class="comment_list_area"></div><div class="comment_box_area"></div></div>
+         </div>
+     </div>
+
+
+
+
+		</div>
+	</div>
+	<div class="boxleft">
+		<div class="main">
+			<h1 style="margin-top:50px;"><a href="#">设计一款好的移动App，有哪些基本规则？</a></h1>
+			<div class="from">2013-7-15 15:40    &nbsp;&nbsp;&nbsp;<a href="#">IT</a>  &nbsp;&nbsp;&nbsp; 来自：<a href="#">极客公园</a></div>
+			<div class="fulltext">
+				<img alt="4725F108-3AB5-457E-B9A4-A533CD247148" class="aligncenter size-medium wp-image-18338" height="392" src="./file/full.png" width="660"></a></p><p>现在我们都在说为移动设备开发软件和为网页端开发是很不一样的，最近做用户使用调研的创业公司UserTesting 创始人之一Michael Mace（过去在苹果、Palm 分别负责市场营销、产品规划）做了一场演讲，介绍他们在移动端产品用户调研的一些结果。</p><p>Michael Mace 首先分享了一些基本的规则，例如在移动端的设计原则绝不是把网页版照搬过来，而是忘记在网页上发生过什么，想想人们在移动端会遇到什么问题，你能提供什么解决方案。</p><p>具体的内容如下：</p><p><strong>首先，降低用户使用的门槛。</strong>其实Michael Mace 用的词是“恐惧”。他说在他们的调研结果中看到，不少用户在第一次使用一个移动端的产品时，心里是有一些恐惧的，主要来自三个方面：账户会不会被黑客盗用、注册会不会有风险（隐私是否会受到影响）、以及是否一个不注意，填写的信息就被同步到社交网络上去了。</p><p>“所以从用户打开一个软件那一刻开始，就要给他们呈现让他们信任的东西，例如选择，特别是在你的产品和社交网站有联系后，更需要有明确社交网络使用用户数据的说明。”在这一点上，Michael Mace 用Any . do 举例，夸这个网站在这一点上做的很好——他们在用户注册的过程中有一句“Your tasks will not be linked to your Facebook account in any way .”（如果你不同意，你的日程安排在任何情况下都不会和你的Facebook 账户关联）。</p><p><strong>其次，也是最重要的是不要让用户迷惑。</strong>让用户迷惑的东西包括：用户看不懂的功能、隐藏的功能、速度慢、当发现用户被这些功能“困住”不能给及时的反馈。</p><p>Michael Mace 认为造成这些问题的原因有几点：“产品是做给大多数人用的，你不能指望主流的80%的人和懂技术懂设计的20%的人一样。偏激的技术爱好者会让产品变得特别复杂，因为他们是设计给和自己一样的20%人。”另一个原因是在产品设计中往往会把美观、滑动等交互置于功能之上。</p><p>那应该怎么做？</p><p><strong>“永远不要为了美观牺牲了功能”</strong>，Michael Mace 说，开发一款产品最重要的是提供功能，解决用户需求，其次再谈美感。</p><p>为了避免让用户困惑：“当你觉得交互麻烦的时候，就用文字说明，避免使用复杂的多级菜单，如果可以，尽量在AppStore 里提供演示的demo，更重要的是，总要设置帮助用户的机制，当他们有问题的时候能获得反馈。”</p><p>最后，Michael Mace 提到当开发者做用户测试时，<strong>不仅要了解数据、背后的逻辑，更重要的是了解用户行为的原因</strong>，“他们对产品的接受程度、喜爱程度，让用户告诉你为什么他们喜欢这样、不喜欢那样，在此基础上，你再去考虑还能再改进点什么。”</p><img border="0" height="0" src="http://www1.feedsky.com/t1/735423927/pingwest/feedsky/s.gif?r=http://pingwest.com/rules-about-apps/" width="0">
+			</div>
+		</div>
+	</div>
+</body>
+</html>

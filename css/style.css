@@ -37,7 +37,6 @@
     height: 380px;
     background: #f4f4f4;
     float: left;
-
     -moz-border-radius: 8px;
     -webkit-border-radius: 8px;
     border-radius: 8px;
@@ -109,4 +108,5 @@
     margin: 10px;
     background: #FFF url(../img/tl.png) center left repeat-x;
     opacity: 0.5;
+
   }
