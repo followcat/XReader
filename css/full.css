@@ -20,8 +20,7 @@
 	  	}
 
 	  	.main {
-	  		width: 80%;
-	  		min-width: 700px;
+	  		width: 900px;
 	  		padding-bottom: 20px;
 	  		margin: 0px auto;
 	  	}
@@ -62,7 +61,6 @@
 
 	  	.logo {
 	  		width: 60%;
-	  		min-width: 300px;
 	  		height: 200px;
 	  		margin: 0px auto;
 	  	}
@@ -73,7 +71,6 @@
 
 	  	.comments {
 	  		width: 80%;
-	  		min-width: 350px;
 	  		height: 600px;
 	  		margin: 20px auto;
 
