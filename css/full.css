@@ -6,38 +6,22 @@
 
 	  	.boxright {
 	  		width: 30%;
-	  		min-width: 330px;
 	  		height: 80%;
 	  		margin-top: 5%;
-
-	  		float: left;
-
 	  		position: fixed;
-			right: 0px;
-			z-index: 101;
-			top: 0px;
-
+	  		right: 0px;
+	  		top: 0px;
 	  		//border-left: 1px #999 solid;
 	  	}
 
 	  	.boxleft {
 	  		width: 70%;
-	  		min-width: 750px;
-
             box-shadow: 2px 99px 25px 5px #C3C4C6;
-
-            float: left;
-
-            position: absolute;
-			left: 0px;
-			z-index: 102;
-			background: url(http://s.ppsrc.com/w/img/bg/global.$5.png);
 	  	}
 
 	  	.main {
 	  		width: 80%;
 	  		min-width: 700px;
-	  		max-width: 850px;
 	  		padding-bottom: 20px;
 	  		margin: 0px auto;
 	  	}
@@ -49,19 +33,15 @@
             color: #111;
 	  	}
 	  	.xg_box {
-	  		overflow-x: hidden; 
-	  		width: 90%;
-	  		max-width: 1000px;
-	  		min-width: 700px;
-
+	  		width: 1000px;
 	  		margin: 15px auto 0px auto;
-	  		//border-top: 1px #BBB solid;
-	  		padding: 5px 10px 10px 10px;
-	  		height: 280px;
+	  		border-top: 1px #BBB solid;
+	  		padding-top: 5px;
+	  		height: 250px;
 	  	}
 	  	.xg {
-	  		width: 205px;
-	  		height: 205px;
+	  		width: 210px;
+	  		height: 210px;
 	  		float: left;
 	  		margin: 10px 20px 5px 20px;
 
@@ -79,13 +59,12 @@
 		    border-radius: 8px 8px 0px 0px;
 	  	}
 
-	  	.logobox {
-	  		
-	  	}
 
 	  	.logo {
-	  		width: 300px;
-	  		margin: 20px auto;
+	  		width: 60%;
+	  		min-width: 300px;
+	  		height: 200px;
+	  		margin: 0px auto;
 	  	}
 
 
@@ -95,18 +74,12 @@
 	  	.comments {
 	  		width: 80%;
 	  		min-width: 350px;
-	  		height: 80%;
+	  		height: 600px;
 	  		margin: 20px auto;
 
-	  		border-top: 1px #DDD solid;
+	  		border-top: 1px #EEE solid;
 
             overflow-y: auto; 
-	  	}
-
-	  	.comment {
-	  		border-bottom: 1px solid #DDD;
-			margin: 0 18px 0 16px;
-			padding: 16px 0;
 	  	}
 
 
@@ -175,6 +148,7 @@ a.subtitle.on span{background:url("/public/img/icons/text.png") 0 -61px no-repea
 #comments .reply-to-top .reply-to-textbox{background:none repeat scroll 0 0 #FFFFFF;display:inline-block;font-size:12px;height:19px;left:50%;line-height:19px;margin-left:-55px;position:absolute;text-align:center;top:-10px;width:110px;}
 #comments .reply-to-top a:hover{color:#efefef;background:#666;}
 #comments .reply-to-top .reply-to-text{background:none repeat scroll 0 0 #F3F4F8;border-radius:10px 10px 10px 10px;color:#999999;cursor:pointer;border-bottom:none;display:inline-block;width:92px;}
+.comment{border-bottom:1px solid #EAEAEA;margin:0 18px 0 16px;padding:16px 0;}
 .comment .avatar{float:left;margin-right:10px;}
 .comment .avatar a:hover{border-bottom:none;}
 .comment .avatar img{width:30px;height:30px;}
