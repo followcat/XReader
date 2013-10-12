@@ -22,11 +22,12 @@
   }
 
   .xreader {
-    height: 680px;
-    width: 1320px;
+    height: 600px;
+    width: 22300px;
 
     margin: 0px auto;
     padding-top:40px;
+    padding-left:15px;
 
   }
 
@@ -34,7 +35,7 @@
     width: 380px;
     margin: 20px;
 
-    height: 380px;
+    height: 530px;
     background: #f4f4f4;
     float: left;
     -moz-border-radius: 8px;
